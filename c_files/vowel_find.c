@@ -1,0 +1,30 @@
+#include<stdio.h>
+
+int main()
+{
+    printf("\n\n\n\t\t Finding the Vowels with a Switch Case \n\n\n");
+
+    char ch;
+    printf("Input a Character : ");
+    scanf("%ch", &ch);
+
+    switch(ch)
+    {
+        case 'a' :
+        case 'A' :
+        case 'e' :
+        case 'E' :
+        case 'i' :
+        case 'I' :
+        case 'o' :
+        case 'O' :
+        case 'u' :
+        case 'U' :
+          printf("\n\n %ch is a vowel.  \n\n", ch);
+          break;
+        default:
+          printf("\n %ch is not a vowel! \n", ch);
+    }
+
+    return 0;
+}
