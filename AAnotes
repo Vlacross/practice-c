@@ -1,0 +1,84 @@
+overall great resource for C and other things (similar to geeks for geeks)
+    https://www.studytonight.com/library/
+
+List of C programs for practice
+    https://www.studytonight.com/c/programs/
+
+
+
+Completed Basic C-Programs: {
+    Hello-world: simpleWorld2.c,
+    Takin-input-from-user: taking_input.c,
+    Find-ASCII-value: ascii_val.c,
+    Using-gets()-function: gets.c,
+    If-Else: if-else.c,
+    Switch-Case: vowel_find.c,
+    Checking-for-vowel: vowel_find.c,
+    Reversing-Case-of-Char: reverseCase.c,
+
+}
+
+Completed C-Guide-Lessons: {
+    1: "Overview of C Language",
+    2: "Features of C",
+    3: "",
+}
+
+
+Guide NOTES:
+1- C is good starting language and is fast to compile and run.
+
+2- C features :
+    variety of datatypes
+    fast & efficient
+    portable
+    easy to extend
+    Modularity
+    rich libraries
+
+3- Parts of C program: {
+    Pre-processor: "links header files; houses macros",
+    Header-File: "Collection of builtin/ready-made functions; basic .h file is stdio.h",
+    Function: " 'main()' function is body of each program; return type specified before declaration (ie: int main() {...; return 0})",
+    Variables: "defined keywords used to handle values and behaviors",
+    Statements-&-Expressions: "Statement are expression and more. They do things(ie: assingment); Expressions return something using defined computation",
+    Comments: "single line comments started with '//' or multi-line comments surrounded with '/* ... */'"
+}
+
+4- Compile and Run C Program:
+    run :
+        cat > hello.c << EOF
+            #include<stdio.h>
+            int main()
+            {
+                printf("\nHello World!\n");
+                exit 0;
+            }
+            EOF
+    then run:
+        gcc -o helloWorld hello.c
+    
+    Run program:
+        ./helloWorld
+
+5- C Language Basic Syntax Rules:
+    How C-Language is specified/recognized is based on C "tokens"
+        ie: the tokens of the line "printf("hello, World");"
+        are: 'printf', '(', '"Hello, World"', ')', and ';' 
+
+    Semicolon is used to mark the end of each line. If this is missing the compiler will throw an error.
+
+    Comment symbols '//' & '/* */' are recognized by the compiler as text to not be compiled
+
+    tips:
+        c is case sensitive
+        all c statements must end with a Semicolon
+        whitespace is used to describe blanks and tabs
+        whitespace is required between keywords and identifiers.
+
+Example structure:
+    #include<stdio.h>
+    int main()
+    {
+        printf("\nHello, you simple World.\n") ;
+    }
