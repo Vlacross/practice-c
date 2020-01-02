@@ -76,9 +76,35 @@ Guide NOTES:
         whitespace is used to describe blanks and tabs
         whitespace is required between keywords and identifiers.
 
-Example structure:
-    #include<stdio.h>
-    int main()
-    {
-        printf("\nHello, you simple World.\n") ;
-    }
+    Example structure:
+        #include<stdio.h>
+        int main()
+        {
+            printf("\nHello, you simple World.\n") ;
+        }
+
+6-  C Keywords:
+        auto        double        int       struct
+        break       else          long      Switch
+        case        enum          register  typedef
+        const       extern        return    union
+        char        float         short     unsigned
+        continue    for           signed    volatile
+        default     goto          sizeof    void
+        do          if            static    while
+
+    C Identifiers - names given to constants/variables, functions, and user-data.
+        -Can only have alphanumeric chars and underscores (a-z)(A-Z)(_);
+        -First char can only be a letter/alphebetic char;
+        -Are case sensitive;
+        -Cannot be a C Keyword;
+        -Cannot conatin special chars;
+    Example declaration:
+        int customVar = "Some String";
+
+    C Charsets:
+        Letters(all alphebetic chars);
+        Digits(0-9);
+        Special chars(colon, semi-colon, period, underscore, ampersand, ...);
+        White spaces
+        
