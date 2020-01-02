@@ -107,4 +107,54 @@ Guide NOTES:
         Digits(0-9);
         Special chars(colon, semi-colon, period, underscore, ampersand, ...);
         White spaces
+
+7-  Operators in C:
+        -Arithmetic;
+        -Relational;
+        -Logical;
+        -Bitwise;
+        -Assignment;
+        -Conditional;
+        -Special;
+
+        1) Arithmetic:
+            [ +, -, *, /, %, ++, -- ];
         
+        2) Relational:
+            [ ==, !=, >, <, >=, <= ];
+        3) Logical:
+            [ &&, ||, ! ]
+        4) Bitwise:
+            [ &, |, ^, <<, >> ];
+
+            Truth table for Bitwise &, |, and ^:
+            a       b       a&b     a|b     a^b
+            0       0       0       0       0
+            0       1       0       1       1
+            1       0       0       1       1
+            1       1       1       1       0
+
+            Shift Operator example:
+                a =      0001000;
+                b =      2;
+                a << b = 0100000;
+                a >> b = 0000010;
+
+        5) Assignment:
+            [ =, +=, -=, *=, /=, %= ];
+
+        6) Conditional:
+            [ ? : ];        /*<-- intentionally no comma between symbols. */
+            
+            Example Ternary:
+                (expression or booleanVariable) ? "this is what returns if expression is true" : "this is what returns if expression is false";
+
+        7) Special:
+            [ sizeof, &, * ];
+            sizeofe     returns the size of a variable;         sizeof(x) returns size of variable "x";
+            &           returns the address of a variable;      &x; returns the address of variable "x";
+            *           pointer to variable;                    *x; will be a pointer to variable "x";
+            
+
+
+
