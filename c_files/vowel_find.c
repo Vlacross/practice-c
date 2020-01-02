@@ -20,10 +20,10 @@ int main()
         case 'O' :
         case 'u' :
         case 'U' :
-          printf("\n\n %ch is a vowel.  \n\n", ch);
+          printf("\n\n %c is a vowel.  \n\n", ch);
           break;
         default:
-          printf("\n %ch is not a vowel! \n", ch);
+          printf("\n %c is not a vowel! \n", ch);
     }
 
     return 0;

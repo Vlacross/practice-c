@@ -155,6 +155,7 @@ Guide NOTES:
             &           returns the address of a variable;      &x; returns the address of variable "x";
             *           pointer to variable;                    *x; will be a pointer to variable "x";
             
-
+8-  Data types in C:
+    https://www.studytonight.com/c/datatype-in-c.php
 
 
