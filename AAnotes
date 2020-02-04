@@ -190,9 +190,8 @@ Guide NOTES:
         Character
             char or signed char             1                               -128 - 127
             unsigned char                   1                               0 - 255
-
-
-
+        Void
+            void - means no value. Used to specify functions that return nothing.
 
         (NOTE: 
             e/E is often used in place of scientific notation
@@ -207,3 +206,7 @@ Guide NOTES:
                 A type double can store about 15 digits in the mantissa, so it would be rounded to 0.1234567890123456 
 
         )
+
+9-  Variables in C Language
+        https://www.studytonight.com/c/variables-in-c.php
+        
