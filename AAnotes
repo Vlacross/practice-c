@@ -94,7 +94,7 @@ Guide NOTES:
         do          if            static    while
 
     C Identifiers - names given to constants/variables, functions, and user-data.
-        -Can only have alphanumeric chars and underscores (a-z)(A-Z)(_);
+        -Can only have alphanumeric cshort hars and underscores (a-z)(A-Z)(_);
         -First char can only be a letter/alphebetic char;
         -Are case sensitive;
         -Cannot be a C Keyword;
@@ -157,5 +157,53 @@ Guide NOTES:
             
 8-  Data types in C:
     https://www.studytonight.com/c/datatype-in-c.php
+    https://userweb.cs.txstate.edu/~js236/201112/cs1428/lecture3.pdf
+
+        Data types are broken down into two types:
+            1)Primary data types: fundamental data types - int, float, char, and void
+            2)Derived data types: Primary datatypes twisted or grouped -- array, structure, union, and pointer
+
+                                    Primary Data Type
+        Character                   Interger                    float               Void
+            char                signed      unsigned                float
+
+            Signed char         int         int                     double
+
+            Unsigned char       short int   short int               long double
+
+                                long int    long int
+        
+
+        Type                                size                            Range
+        
+        Integer
+            int or signed int               2                               -32,768 - 32,767
+            unsigned int                    2                               0 - 65535
+            short int /unsigned short int   1                               -128 - 127
+            unsigned short int              1                               0 - 255
+            long int/signed long in         4                               -2,147,483,648 - 2,147,483,647
+            unsigneed long int              4                               0 - 4,294,967,295
+        Floating
+            Floating                        4                               3.4E-38  -  3.4E+38
+            double                          8                               1.7E-308  -  1.7E+308
+            long double                     10                               3.4E-4932 - 1.1E+4932
+        Character
+            char or signed char             1                               -128 - 127
+            unsigned char                   1                               0 - 255
 
 
+
+
+        (NOTE: 
+            e/E is often used in place of scientific notation
+            e- is the inverted (divide by 10 instead of multiply by 10)
+                1.7E+3 is the same as 1.7 * 10^3 == 1700
+                +3.4e38 == 34000...000 (with 37 zeros)
+                -3.4e-38 == .34000...000 (with 37 zeros)
+                +3.4e38 == .000...034 (with 37 zeros)
+                -3.4e38 == -.000...034 (with 37 zeros)
+            Mantissa - The part of a logarithm that follows the decimal point (any digits to the right of the decimal)
+                If 0.12345678901234567 is stored in a type float (which can store about 7 digits in its mantissa), it will get rounded to 0.1234568
+                A type double can store about 15 digits in the mantissa, so it would be rounded to 0.1234567890123456 
+
+        )
