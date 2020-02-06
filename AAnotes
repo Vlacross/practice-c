@@ -210,3 +210,48 @@ Guide NOTES:
 9-  Variables in C Language
         https://www.studytonight.com/c/variables-in-c.php
         
+        Variable - a named memory location
+            -unlike constants, variables can change/can be changed during execution of a program.
+        
+        variables in C need to be given a type to define what datatype it will hold. This can be:
+            char - Can hold a a Character
+            int - holds an integer
+            float - holds a float value
+            double - holds a double value
+            void
+
+        variable names can:
+            not start with a digit
+            consist of alphebets, digits, and special symbols like underscore
+            not include blank or white space
+            not be a keywords
+            use upper and lower cases of letters, but is case-sensitive
+
+        declaration of variables must be done before they are used.
+            it tells the compiler what the variable name is
+            it specifies what type of data the variable will hold
+            until the variable is defined, the compiler doesn't have to worry about allocating memory space to it
+            declaration is more like informing the compiler that there exists a variable with the foloowing datatype which is used in this program
+            a variable is declared using the 'extern' keyword, outside the `main()` function.
+                extern int a;
+                extern float b;
+            
+        Defining a variable means the compiler has to now assign a storage to the variable because it will be used in the program. 
+            It is not necessary to declare a variable using the `extern` keyword if you want to use it in your program. 
+            You can directly define a variable inside the `main()` function and use it.
+
+            To define a var inside a function you must define the datatype and the variable name. You can define multiple vars of same datatype 
+                in a single line by using a comma seperated list:
+                    int a;
+                    float b, c;
+            
+        Initializing a variable means to provide it with a value. Can be initialized and defined in a single statement:
+            int a = 10;
+
+        Identifyer - a name given to any function, variable, structure, pointer, or other entity in a programming language.
+            can be a variable, but not all identifiers are
+
+        Variable - a named memory location used in the program.
+
+10- C Input and Output
+    https://www.studytonight.com/c/c-input-output-function.php
