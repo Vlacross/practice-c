@@ -255,3 +255,37 @@ Guide NOTES:
 
 10- C Input and Output
     https://www.studytonight.com/c/c-input-output-function.php
+
+    Basic input-output header file is stdio.h - contains printf() and scanf()
+
+        Using %d, %f, %c, %s inside scanf() captures user input, followed by the &<variable> to initialize the variable to the input value:
+            int num;
+            scanf("%d", &num);
+
+        printf() function returns the number of characters printed by it
+        scanf() returns the number of characters read by it:
+        
+                int i = printf("studytonight");
+            will return 12 as the result which will be stored in the variable i.
+
+
+        gets() funciton reads a line from stdin() into the buffer pointed to by "str" pointer, until either a terminating 
+            newline of EOF occurs.
+        puts() function writes the string "str" and a trailing newline to stdout
+        ```
+            #include<stdio.h>
+            {
+                char str[100];
+                printf("Enter a string");
+                gets( str );
+                puts( str );
+                getch();
+            }
+        ```
+        when compiled, the above will request a string and then print the value entered.
+
+        Difference between scanf() and gets() is that scanf() stops reading characters when it encounters a space, but gets() reads 
+        space as a character too.
+            
+11- Decision making in C ( if, switch, goto )
+    https://www.studytonight.com/c/decision-making-in-c.php
