@@ -289,3 +289,72 @@ Guide NOTES:
             
 11- Decision making in C ( if, switch, goto )
     https://www.studytonight.com/c/decision-making-in-c.php
+
+    Decision making is about deciding the order of execution of statements based on conditions, or repeating a group of statements 
+        until certain condiftions are met. In C, this is handled with:
+
+    -if Statements
+    -switch statements
+    -conditional operators ? :
+    -goto statement
+
+    If statements:
+        1) simple if statemtents
+            if(expression)
+            {
+                statement inside;
+            }
+                statement outside;
+        2) if...else statement
+            if(exor)
+            {
+                statement block1;
+            }
+            else{
+                statement block2;
+            }
+        3) Nested if....else
+            if(expr1)
+            {
+                if(expr2)
+                {
+                    nested statement;
+                }
+                else
+                {
+                    nested else statement;
+                }
+            }
+            else
+            {
+                un-nested statement;
+            }
+        4) using else if ladder
+            if(expr1)
+            {
+                statement1;
+            }
+            else if(expr2)
+            {
+                statement 2;
+            }
+            else
+            {
+                default statement;
+            }
+
+    Notes - 
+    -curly braces are not required if there is only one statement outside the if condition.
+        example :
+            int a = 5;
+            if(a > 4)
+                printf("yep!");
+     -"==" must be used to compare as "=" assigns and comes back as true
+     -other than 0, all other values return as true:
+        if(27)
+            print("hello")
+        ^ prints true ^   
+
+-12 Switch statement in C:
+    https://www.studytonight.com/c/switch-statement-in-c.php
+        
