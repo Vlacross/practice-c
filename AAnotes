@@ -357,4 +357,43 @@ Guide NOTES:
 
 -12 Switch statement in C:
     https://www.studytonight.com/c/switch-statement-in-c.php
-        
+    
+    Example syntax:
+        switch(expression)
+        {
+            case value-1:
+                block-1;
+                break;
+            case value-2:
+                block-2;
+                break;
+            case value-3:
+                block-3;
+                break;
+        }
+
+    -The expression must be an integer value (either be an integer or an expression that evaluates to an integer)
+    -Each case "label" must be unique ( i.e.: value-2 ) And end in a colon
+    -line following the case statement can be any valid C statement.
+    -if "break" is not specified, the block will continue to run through every case:
+        int i = 1;
+        switch(i)
+        {
+            case 1:
+                printf("A");
+            case 2:
+                printf("B");
+            case 3:
+                printf("C");
+                break;
+        }
+
+        ^This yields output: "A B C" since case 1 matches but there is no break until case 3
+
+    -Nested switch cases are possible but not recommended due to their effect of increasing complexity of compiled
+
+    NOTE: 'if' statements can evaluate 'float' conditions, whereas switch statements cannot.
+           'if' statements can evaluate relational operators which are not allowed in switch statements.
+
+-13 Looping
+    https://www.studytonight.com/c/loops-in-c.php
