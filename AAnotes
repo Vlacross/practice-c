@@ -397,3 +397,80 @@ Guide NOTES:
 
 -13 Looping
     https://www.studytonight.com/c/loops-in-c.php
+
+    Loops are instruction sets that specify a condition, that if the value given to the condition is either true/false, 
+        will either rerun until the given condition is met or break from the loop depending on what kind of loop / what the conditions are.
+
+    Types of Loops:
+        while
+            While specified condition is true, continue loop and break once condition is unmet.
+            Ex:
+                #include<stdio.h>
+
+                void main()
+                {
+                    int x;
+                    x = 1;
+                    while(x <= 10)
+                    {
+                        printf("%d\t", x);
+                        x++;
+                    }
+                }
+        for
+            Used to iterate across a range (such as an array etc)
+            Instructions(held within parens and seperated by semi-colons) state a starting value(what will be tested against the condition), ending
+             value (what condition must be matched), anda step/increment/change (a mutation applied to the starting value before each testing 
+             against the condition)
+            Ex:
+                #include<stdio.h>
+
+                void main()
+                {
+                    int x;
+                    for(x=1; x <= 10; x++)
+                    {
+                        printf("%d\t", x);
+                    }
+                }
+            for loops can be nested inside each other. 
+            Ex: (builds a "half pyramid")
+                int i, j;
+
+                for(i=1; i <= 5; i++)
+                {
+                    printf("\n);
+
+                    for(j=i; j > 0; j--)
+                    {
+                        printf("%d", j);
+                    }
+                }
+        do while
+            Same as a while loop, but executes code-block before checking condition.
+            Ex(general syntax):
+                #include<stdio.h>
+
+                void main()
+                {
+                    int a, j;
+                    a = 5;
+                    j = 1;
+
+                    do
+                    {
+                        printf("%d\t", a*j);
+                        j++;
+                    }
+                    while(j <= 32);
+                }
+        Jumping out of loops
+            break - adding an inner condition with a break will immediately exit the loop once the inner condition is met
+
+            continue - adding an inner condition with a continue immediately skips the rest of the code block and starts into the next interation.
+
+
+
+
+    
+
