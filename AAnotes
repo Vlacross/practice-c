@@ -469,7 +469,106 @@ Guide NOTES:
 
             continue - adding an inner condition with a continue immediately skips the rest of the code block and starts into the next interation.
 
+- 14 Arrays in C
+    https://www.studytonight.com/c/arrays-in-c.php
 
+    arrays are structured data types - "Finite ordered collection of homogenous data" stored in contiguous memory locations.
+        finite - data range must be defined
+        ordered - data must be stored in a continuous memory address
+        homogenous - data must be of similar data type
+            Other structures in c are :
+                structure
+                lists
+                queue
+                trees
+                etc
+
+    Declaring an array:
+        Syntax = <data-type> <variable-name>[size]
+
+        example -- int arr[10];
+        outputs: [0][1][2][3][4][5][6][7][8][9][10]
+            where each number in the index/location within the array
+
+    Initialization of an Array:
+        int marks[4]={ 67, 87, 55, 77 };
+
+        float area[5]={ 23.4, 6.9, 5.5 };
+
+        int marks[4]={ 44, 55, 22 ,33, 7 }  // This creates a compile time error as it is adding more items than memory is allocated
+
+            #include<stdio.h>
+
+            void main()
+            {
+                int i;
+                int arr[]= { 2, 3, 4 };
+                for(i=0; i < 3; i++)
+                {
+                    printf("%d", arr[i]);
+                }
+            }
+
+        Initializing arrays at runtime using scanf can be used for large arrays or when using user specified values:
+
+            #include<stdio.h>
+
+            void main()
+            {
+                int arr[4];
+                int i, j;
+                printf("Enter Array element");
+                for(i=0; i < 4; i++)
+                {
+                    scanf("%d", &arr[i]);
+                }
+                for(j=0; j < 4; j++)
+                {
+                    printf("%d\n", arr[j]);
+                }
+            }
+
+        Two Dimensional Arrays:
+            Sytnax = <data-type> <arr-name> [row-size][column-size]
+
+            int a[3][4]:
+                    [0[0]]    [0][1]      [0][2]
+                    [1[0]]    [1][1]      [1][2]
+                    [2[0]]    [2][1]      [2][2]
+
+        Or as -
+            int arr[][3] = {
+                { 0, 1, 2 },
+                { 3, 2, 1 }
+            };
+            **Without speficying any row-number(the empty square-bracket) it means we can initialize any number of rows, but they must
+                follow the size specified for columns if it is set.
+                
+            #include<stdio.h>
+
+            void main()
+            {
+                in arr[3][4];
+                int i, j;
+                printf("Enter array element");
+                for(i=0; i < 3; i++)
+                {
+                    for(j=0; j < 4; j++)
+                    {
+                        scanf("%d", &arr[i][j]);
+                    }
+                }
+                for(i = 0; i < 4; i++)
+                {
+                    for(j=0; j < 4; j++)
+                    {
+                        printf("%d", arr[i][j]);
+                    }
+                }
+            }
+
+- 15 String and Character Array 
+    https://www.studytonight.com/c/string-and-character-array.php
 
 
     
