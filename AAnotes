@@ -570,6 +570,73 @@ Guide NOTES:
 - 15 String and Character Array 
     https://www.studytonight.com/c/string-and-character-array.php
 
-
+    In C, a String is a one-dimensional array of characters that is treated as a single data item and is terminated by the null character 
+        "\0" automatically added by the compiler.
+        -Valid initializations - char name[13] = "StudyTonight";   
+                                char name[10] = {'L', 'e', 's', 's', 'o', 'n', 's', '\0'}; 
+                            /*In the first example: if it was 12 instead of 13, this would be invalid - it needs space for the newline char*/ 
     
+        -Invalid initializaiont - char ch[3] = "hell";                  /* "hell" would require at least 5 for allotted memory for the null char */
+
+        -scanf() can be used with %s to read a string from input, but ends reading at any whitespace, so "hello world" would only read "hello";
+        -However, C supports a format spec known asd the `edit set conversion code %[..]` that can be used to read a line containing a variety of 
+            chars+whitespaces:
+            Example:
+                #include<stdio.h>
+                #include<string.h>
+
+                void mand()
+                {
+                    char str[20];
+                    printf("Enter a string:");
+                    scanf("%[^\n]", &str);
+                    printf("%s", str);
+                }
+        Another method is with the gets() function:
+                char text[20];
+                gets(text);
+                printf("%s", text);
+
+    C has a number of string handling functions, many of which are included in the `string.h` library. Common ones are:
+        strcat() - used to concatenate(combine) two strings;
+            strcat("simple", "world")
+        strlen() - shows the length of the str;
+            int j;
+            j - strlen("studytonight");
+            prinf("%d", j);
+        strrev() - used to show the revese of a string;
+            #include<stdio.h>
+
+            int main()
+            {
+                char s1[50];
+                printf("Enter your string:");
+                gets(s1);
+                printf("\nYour recerse string is: %s", strrev(s1));
+                return(0);
+            }
+
+        strcpy() - copies one string into another;
+            #include<stdio.h>
+            #include<string.h>
+
+            int main()
+            {
+                char s1[50];
+                char s2[50];
+
+                strcpy(s1, "StoopsGalore");
+                strcpy(s2, s1);
+
+                printf("%s\n", s2);
+                return(0);
+            }
+        strcmp() - used to compare two strings; will return the ASCII differnce between first unmatching char or two strings:
+            int j;
+            j = strcmp("Stoops", "Galore");
+            printf("%d", j);
+
+- 16 Storage classes in C
+    https://www.studytonight.com/c/storage-classes-in-c.php
+
 
