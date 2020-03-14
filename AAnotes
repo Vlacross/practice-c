@@ -639,4 +639,133 @@ Guide NOTES:
 - 16 Storage classes in C
     https://www.studytonight.com/c/storage-classes-in-c.php
 
+    In C, each variable has a storage class which decides:
+        -Scope (where it is available)
+        -DIV (Default Initial value)
+        -Lifetime (how long the variable will exist)
+
+    Commone Storage Classes:
+
+        -Automatic (aka Local) Variables: 'auto'
+            Scope: 'auto' storage class are local to the function block where they are defined;
+            DIV: Any random value (i.e. garbage value)
+            Lifetime: 'auto' storage class lasts until the end of the function/method where the variable is defined
+
+            **A variable declared inside a function without any storage class specification is by default an AUTOMATIC VARIABLE. 
+                They are created when a function is called and are destroyed AUTOMATICALLY when the functions completes it's execution. 
+                Auto variables can also be called LOCAL VARIABLES because they are local to a function. By default they are assigned 
+                a GARBAGE VALUE by the compiler.
+                #include<stdio.h> 
+
+                void main()
+                {
+                    int detail;
+                    /* same as: */
+                    auto int details;
+                }
+
+        -External (aka Global) Variables: 'global'
+            Scope: Global/ everywhere in the program. Not bound by any scope;
+            DIV: 0(zero);
+            Lifetime: Until the end of a program's execution. 
+
+            **Globals are declared outside any function. Their value can be changed by any function in the program;
+                #include<stdio.h>
+
+                void main()
+                {
+                    number = 10;
+                    printf("I'm in the main function. My value is %d\n", number);
+                    fun1();
+                    fun2();
+                }
+
+                fun1()
+                {
+                    number = 20;
+                    printf("I am the first function and my value is %d\n", number);
+                }
+
+                fun2()
+                {
+                    printf("\nI am the second function and my value is %d\n", number);
+                }
+
+        -Extern Keyword: (extern)
+            the 'extern' keyword is used with a variable to inform the compiler that this variable is declared somewhere 
+                else in the program. The 'extern' declaration does not allocate storage for variables.
+                            file1.c                               file2.c
+                    ------------------------                ------------------------
+                    #include<stdio.h>                          #include<stdio.h>
+                    int a = 7;  #-------------                 main()
+                    void fun()                --
+                    {                           --             {
+                        a++;                      ------->          extern int a;
+                        printf("%d", a);                            fun();
+                        ......
+                    }                                           }
+                                */ The above shows a global 'int a' can be used in file 2 with the 'extern' keyword /*
+                                */ without 'extern' results in "Error: cannot find definition of a variable 'a' " /*
+                    /* Example of using 'extern' in same file */
+                    int main()
+                    {
+                        extern in x;
+                        x = 10;
+                        printf("%d", x);
+                    }
+                    int x;
+
+        -Static Variables: (static)
+            Scope: Local to the block in which the variable is defined;
+            DIV: 0(zero);
+            Lifetime: Until the end of the program's execution;
+
+            **A static variable lasts until the end of the program, but can be internally or externally scoped depending
+                on where they are declared. The scope of the variable remains inside the funciton in which it is defined.
+                External static veriables remain restricted to the scope of the file in which they are declared.
+
+                #include<stdio.h>
+
+                void test() /* function declaration which is discussed in next section */
+
+                int main()
+                {
+                    test();
+                    test();
+                    test();
+                }
+
+                void test()
+                {
+                    static int a=0;
+                    a = a+1;
+                    printf("%d\t", a);
+                }  /* Output: 1     2     3 */
+                
+
+        -Register Variables: (register)
+            Scope: Local to the function in which it is declared;
+            DIV: and random value ( i.e.: garbage value);
+            Lifetime: Until the end of the function block;
+            **Register variables inform the compiler to store the variable in CPU register instead of memory. Register vars
+                have faster accessibility than normal vars. Generally used for frequently used cars - but only a few vars can
+                be placed inside registers. Example use case is in using loops, where the var is used a number of times in a 
+                very short time span.
+                        `register int number`;
+                ***The number of registersw in a CPU are limited, so they may not always be free which means that even though you
+                    declare them as a 'register', they may not be stored in a register. In this event, the variable works as if 
+                    its storage class is 'auto';
+
+        -Which storage class should be used when:
+            -Use 'static' onle when you want the value of the variable to remain the same every time you call it using different 
+                function calls;
+            -Use 'register' only for variables that are used in you program very often. CPU registers are limited and thus should
+                be used carefully;
+            -Use 'external' or 'global' only for vars that are beingused by almost all the functions in the program;
+            -If you don't have the purpose for using any of the above storage classes, use 'auto';
+
+
+- 17 Functions in Char
+    https://www.studytonight.com/c/user-defined-functions-in-c.php
+
 
