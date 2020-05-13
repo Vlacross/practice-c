@@ -765,7 +765,108 @@ Guide NOTES:
             -If you don't have the purpose for using any of the above storage classes, use 'auto';
 
 
-- 17 Functions in Char
+- 17 Functions in C
     https://www.studytonight.com/c/user-defined-functions-in-c.php
+
+    A function is a set of instructions designed to perform a patricular task.
+
+    A function can either be:
+        - Library Function
+            pre-defined in C library (ex: printf(), scanf(), strcat()). As long as the proper header file is included in the file,
+            these functions are available without needing to be written/defined by the user.
+        - User-defined Function:
+            Custom action / algorithm used for code reusability and for saving time and space.
+
+    Functions provide modularity, makes code reusable, allows custom tooling which can help in debugging (especially in 
+      multi-thousand line code), and it makes the program more readable.
+
+    Like variables, Functions must be declared before they can be used.
+
+    Function Declaration::
+
+    General syntax for function declaration:
+
+                                        |         Parameter List        |       terminating semi-colon
+        <return-type> <functionName>(<type1 parameter1, type2 parameter2, ...>);
+
+        - <return-type>:
+            When a function is declared to perform some calculation or operation and is expected to provide a result, a return 
+            statement is added to the end of the func body. the return-type specifies the returned value (int, float, char, double)
+          *If your function doesn't return any value, the return type would be 'void'
+
+        - <functionName>:
+            The function name is an identifier and must follow the same naming conventions as any other variable.
+
+        - <parameter-list>:
+            Parameter list declares the type and number of arguments that the function expects. It also receives the arguments values 
+            when the function is called. They are often called "Formal Parameters".
+
+        Example:
+
+            #include<stdio.h>
+
+            int multiply(int a, int b);
+
+            int main()
+            {
+                int i, j, result;Declaration
+                printf("Please enter 2 numbers you want to multiply: ");
+                scanf("%d%d", &i, &j);
+
+                result = multiply(i, j);
+
+                printf("The result of multiplication is : %d", result);
+
+                return 0;
+            } 
+
+            int multiply(int a, int b)
+            {
+                return (a*b);
+            }
+        
+
+    Function Definition::
+
+    General syntax for function Definition:
+
+        |               First line (below) is called the header                |
+        <return-type> <functionName>(<type1 parameter1, type2 parameter2, ...>);
+        {
+            <function-body>
+        }
+
+    Note : when DEFINING a func, there is no semicolo after the parenthesis.
+
+    - <function-body>:
+        The function body consists of three parts:
+            - local variable declaration (if needed)
+            - function statements to perform the task(s) inside the function
+            - a return statement to return the result evaluated by the function (unless return type 'void')
+
+
+    When a function is called, control of a program gets transfered to the function.
+
+    Arguments are the values specified during the function call. for which the formal parameters are declared
+     while defining the dunction.
+
+        It is possible to have a function with parameters but no return type. It is not necessary that if
+         a function accepts parameter(s), it must return a result too. 
+
+        If a function is declared with 2 parametes (int a, int b), It must be passed 2 arguments when it is called 
+         else it will throw a compilation error. The two arguments passed should be received in the function definition,
+          which means that the function header in the definition should have two parameters to hold the argument values.
+
+    Returning a value from a function:
+        A function may or may not return a result, but if it does, it must contain a 'return' statement.
+        the 'return' statement ends the function execution, so it must be the last statement in any function. Anything
+        written after the return statement won't be executed.
+
+        The Datatype returned from a function must match that of which it was declared, else a compilation error will result.
+
+- 18 Types of User-defined Functions in C
+    https://www.studytonight.com/c/type-of-functions-and-recursion.php
+
+    
 
 
