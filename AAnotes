@@ -1010,3 +1010,69 @@ Guide NOTES:
 
             return r;
         }
+
+
+
+- 19 Types of Function Calls in C
+    https://www.studytonight.com/c/types-of-function-calls.php
+
+    Functions can be called in two different ways:
+
+        1) Call by value
+            Calling by value means passing the values of the args which are stored / copied into 
+             the formal parameters of the func. Hence, the original values are unchanged, only the 
+             parameters inside the function changes:
+
+                #include<stdio.h>
+
+                void plusTen(int x);
+
+                int main()
+                {
+                    int x = 10;
+                    plusTen(x);
+                    printf("\nValue of x in main is %d", x);        /* prints 10 */
+                    return 0;
+                }
+
+                void plusTen(int x)
+                {
+                    x = x+10;
+                    printf("\nValue of x in plusTen is %d", x);    /* prints 20 */
+                    return 0;
+                }
+            This passes the value of 'x' not 'x' itself, so x in unchanged. Only a copy of x is altered
+             within the function. 
+            To actually alter 'x', we would change:
+                    plusTen(x);
+            to:
+                    x = plusTen(x); 
+
+
+        2) Call be Reference
+            In this style, we pass the address(reference) of a var as an arg to any func. When we pass the
+             address, then the function will have access to our variable, as it would know where to save changes.
+
+                #include<stdio.h>
+
+                void plusTen(int *p);
+
+                int main()
+                {
+                    int x = 10;
+                    plusTen(&x);
+                    printf("Value of x in %d", x);
+                    return 0;
+                }
+
+                void calc(int *p)
+                {
+                    /*
+                        changes the value directly and is stored in the var address
+                    */
+
+                    *p = *p + 10;
+                }
+
+- 19 How to pass Array to a function
+    https://www.studytonight.com/c/array-in-function-in-c.php
