@@ -867,6 +867,146 @@ Guide NOTES:
 - 18 Types of User-defined Functions in C
     https://www.studytonight.com/c/type-of-functions-and-recursion.php
 
-    
+    4 types of user-defined functions are:
+        1) Function with no args and no return val
+        2) Function with no ars and a return val
+        3) Function with args and no return
+        4) Function with args and a return val
+
+        1) Function with no args and no return val:
+            Either used to display info or are completely dependant upon user input:
+            Example:
+
+            #include<stdio.h>
+
+            void greatNum();
+
+            int main()
+            {
+                greatNum());
+                return 0;
+            }
+
+            void greatNum()
+            {
+                int i, j;
+                printf("Enter 2 numbers that you want to compare...");
+                scanf("%d%d", &i, &j);
+                if(i < j) {
+                    printf("The greater number is: %d", i);
+                }
+                else {
+                    printf("The greater number is: %d", j);
+                }
+            }
 
 
+        2) Function with no ars and a return val
+            Modified above to have greatNum function return the greater of the input numbers:
+
+            #include<stdio.h>
+
+            int greatNum();
+
+            int main()
+            {
+                int result;
+                result = greatNum();
+                printf("The greater number is: %d", result);
+                return 0;
+            }
+
+            int greatNum()
+            {
+                int i, j;
+                printf("Enter 2 numbers to compare:");
+                scanf("%d%d", &i, &j);
+                if(i > j) {
+                    greaterNum = i;
+                }
+                else {
+                    greaterNum = j;
+                }
+                return greaterNum;
+            }
+
+
+        3) Function with args and no return
+            #include<stdio.h>
+
+            void greatNum(int a, int b);
+
+            int main()
+            {
+                int i, j;
+                printf("Enter 2 numbers that you want to compare...");
+                scanf("%d%d", &i, &j);
+                greatNum(i, j));
+                return 0;
+            }
+
+            void greatNum(int x, ing y)
+            {
+                if(x < y) {
+                    printf("The greater number is: %d", y);
+                }
+                else {
+                    printf("The greater number is: %d", x);
+                }
+            }
+
+
+        4) Function with args and a return val
+            #include<stdio.h>
+
+            void greatNum(int a, int b);
+
+            int main()
+            {
+                int i, j, result;
+                printf("Enter 2 numbers that you want to compare...");
+                scanf("%d%d", &i, &j);
+                result = greatNum(i, j));
+                printf("The greater number is: %d", result);
+                return 0;
+            }
+
+            void greatNum(int x, ing y)
+            {
+                if(x < y) {
+                    return y
+                }
+                else {
+                    return y;
+                }
+            }
+
+    Nested functions are functions inside of other functions.
+
+    Recusive functions are functions that can/do call themselves inside.
+
+    Recusive Function Example:
+        #include<stdio.h>
+
+        int factorial(int x);
+
+        void main()
+        {
+            int a, b;
+
+            printf("Enter a number:");
+            scanf("%d", &d);
+            b = factorial(a);
+            printf("%d", b);
+        }
+
+        int factorial(int x)
+        {
+            int r = 1;
+            if(x == 1)
+                return 1;
+            else
+                r = x*factorial(x-1);
+
+            return r;
+        }
