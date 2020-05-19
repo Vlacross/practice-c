@@ -1076,3 +1076,99 @@ Guide NOTES:
 
 - 19 How to pass Array to a function
     https://www.studytonight.com/c/array-in-function-in-c.php
+
+    There are two ways to pass an array as argument(s) to a function:
+        -either have an array as a parameter:
+            int sum (int arr[]);
+        -Or have a pointer in the params list, to hole the base addres of the array:
+            int sum(int* ptr);
+
+    Returning an Array from a function:
+        We don't return arrays from funcitons, rather return a pointer holding the base address of the array to be returned.
+        We must make sure the array exists after the function ends: i.e. the array is not local to the function.
+            int* sum (int x[])
+            {
+                return x;
+            }
+
+    Passing arrays as params to a function
+        Passing a single array element to a function:
+
+            #include<stdio.h>
+
+            void giveMeArray(int a);
+
+            int main()
+            {
+                int myArray[] = { 2, 3, 4 };
+                giveMeArray(myArray[2]);
+                return 0;
+            }
+
+            void giveMeArray(int a)
+            {
+                printf(%d", a);
+            }
+
+        Passing a complete one-dimensional array to a function:
+            #include<stdio.h>
+
+            float findAverage(int marks[]);
+
+            int main()
+            {
+                float avg;
+                int marks[] = { 99, 90, 96, 93, 95 };
+                avg = findAverage(marks);
+                printf("Average marks = %.1f", avg);
+                return 0;
+            }
+
+            float findAverage(int marks[])
+            {
+                int i, sum =0;
+                float avg;
+                for (i = 0; i <=4; i++) {
+                    sum += marks[i];
+                }
+                avg = (sum / 5);
+                return avg;
+            }
+
+        Passing a multi-dimensional array to a function:
+            #include<stdio.h>
+
+            void displayArray(int arr[3][3]);
+
+            int main()
+            {
+                int arr[3][3], i, j;
+                printf("Please enter 9 numbers for the array : \n");
+                for (i = 0; i < 3; ++i)
+                {
+                    for (j = 0; j < 3; ++j)
+                    {
+                        scanf("%d", &arr[i][j]);
+                    }
+                }
+
+                displayArray(arr);
+                return 0;
+            }
+
+            void displayArray(int arr[3][3])
+            {
+                int i, j;
+                printf("The complete array is: \n");
+                for (i = 0; i < 3; ++i)
+                {
+                    printf("\n");
+                    for (j = 0; j < 3; ++j)
+                    {
+                        printff("%d\t", &arr[i][j]);
+                    }
+                } 
+            }
+20 - C structures
+    https://www.studytonight.com/c/structures-in-c.php
+
