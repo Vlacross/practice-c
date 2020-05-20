@@ -15,4 +15,5 @@ This is just a list to keep track of the simple programs already completed from 
 
     LOOPS
 1) Basic for Loop -- basic_for
-
+2) Basic while Loop -- basic_while
+3) Nested for Loops -- nested_for_loops
