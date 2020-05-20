@@ -1162,7 +1162,7 @@ Guide NOTES:
                 printf("The complete array is: \n");
                 for (i = 0; i < 3; ++i)
                 {
-                    printf("\n");
+                    printf("\n");ty
                     for (j = 0; j < 3; ++j)
                     {
                         printff("%d\t", &arr[i][j]);
@@ -1172,3 +1172,184 @@ Guide NOTES:
 20 - C structures
     https://www.studytonight.com/c/structures-in-c.php
 
+    A C structure (struct) is a user-defined datatype which allows us to combine data of different types together.
+     Structures help to construct complex data types. It is similar to an array, though an array can only hold a 
+     single data type.
+
+    While an array can hold a list of student names, a structure can hold a variety of information about each student:
+        name, age, grade, branch, address, etc.
+    
+    With structures, data is stored in the form or 'records'.
+
+    'struct' keyword is used to define a structure:
+      Note: the closing curly-bracket must be followed by a semi-colon.
+
+        struct [structure name/tag]
+        {
+            //member var1
+            //member var2
+            //...
+        }[structure_variables];
+
+        struct Student
+        {
+            char name[25];
+            int age;
+            char branch[10];
+            char sex;
+        };
+
+    To declare variables of type/structure "Student", you would specify:
+
+        struct Student S1, S2
+
+    Or you could simply specify the variables immediately after the closing curly bracket:
+
+        struct Student
+        {
+            char name[25];
+            int age;
+            char branch[10];
+            char sex;
+        }S1, S2;   
+
+    Though the first method is recommended.
+
+    Accessing Structur Members:
+
+    To access properties or "members" of a structure, you specify the name of the structure 
+     variable with a period/ dot/ 'member access operator' appended with the property name 
+      appended to that.
+
+        #include<stdio.h>
+        #include<string.h>
+
+        struct Student
+        {
+            char name[25];
+            int age;
+            char branch[10];
+            char sex;
+        };
+
+        int main()
+        {
+            struct Student s1;
+
+            s1.age = 18;
+
+            strcpy(s1.name, "Viraaj"); /* https://www.geeksforgeeks.org/strcpy-in-c-cpp/ */
+
+            printf("Name of Student 1: %s", s1.name);
+            printf("Age of Student 1: %d", s1.age);
+
+            return 0;
+
+        }
+    
+    'scanf()' can also be used to give values to structure members through terminal.
+
+    Structures can be initialized at compile time:
+    
+        struct Patient
+        {
+            float height;
+            int weight;
+            int age;
+        };
+
+        struct Patient p1 = { 188.7, 55, 33 }; // initializations
+
+    or afterwards:
+        struct Patient p1;
+        p1.height = 188.7;
+        p1.weight = 55;
+        p1.age = 33;
+
+    Array of Structure:
+        We can also declare an array of structure variables in which each element of the array will represent
+         a structure variable.
+            struct employee emp[5];
+        The below example defines an array of 'emp' of size 5. Each element of the array 'emp' is of type 'Employee'.
+
+            #include<stdio.h>
+
+            struct Employee
+            {
+                char name[10];
+                int sal;
+            };
+
+            struct Employee emp[5];
+            int i, j;
+            void ask()
+            {
+                for(i=0; i < 3; i++) 
+                {
+                    printf("\nEnter %dst Employee record: \n", i+1);
+                    printf("\nEmployee name:\t");
+                    scanf("%s", emp[i].name);
+                    printf("\nEnter Salary:\t");
+                    scanf("%d", &emp[i].sal);
+                }
+                printf("\nDisplaying Employee record:\n");
+                for(i = 0; i < 3; i++)
+                {
+                    printf("Employee name is %s", emp[i].name);
+                    printf("Salary is %d", emp[i].sal);
+                }
+            }
+
+            void main()
+            {
+                ask();
+            }
+
+        Nested Structures:
+
+            struct Student{
+                char[30] name;
+                int age;
+
+                struct address
+                {
+                    char[50] locality;
+                    char[50] city;
+                    int pincode;
+                }addr;
+            };
+
+        Structure as function arguments:
+            #include<stdio.h>
+
+            struct Student
+            {
+                char name[10];
+                int roll;
+            };
+
+            void show(struct Student st);
+
+            coid main()
+            {
+                struct Student std;
+                printf("\nEnter Student record:\n");
+                printf("\nStudent name:\t");
+                scanf("%s", std.name);
+                printf("\nEnter Student rollno.:\t");
+                scanf("%d", &std.roll);
+                show(std);
+            }
+
+            void show(struct Student st)
+            {
+                printf("\nstudent name is %s", st.name);
+                printf("\nroll is %d", st.roll);
+            }
+
+21 - typedef in C
+    https://www.studytonight.com/c/typedef.php
+
+
+
+    
