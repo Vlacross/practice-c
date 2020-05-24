@@ -18,3 +18,4 @@ This is just a list to keep track of the simple programs already completed from 
 2) Basic while Loop -- basic_while
 3) Nested for Loops -- nested_for_loops
 4) Print Factorial -- factorialFinder
+5) Fibonacci Series -- fibonacci_while
