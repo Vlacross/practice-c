@@ -1330,7 +1330,7 @@ Guide NOTES:
 
             void show(struct Student st);
 
-            coid main()
+            void main()
             {
                 struct Student std;
                 printf("\nEnter Student record:\n");
@@ -1350,6 +1350,62 @@ Guide NOTES:
 21 - typedef in C
     https://www.studytonight.com/c/typedef.php
 
+    `typedef` is a keyword used in C to assign alternative names to existing datatypes. 
+      Ususally used in user defined datatypes when the names become too complicated.
 
+    Syntax:
+        typedef <existing_name> <alias_name>;
 
+    Example:
+        typedef unsigned long ulong;
     
+    The above defines a term `ulong` for an unsigned long datatype. Now `ulong` can be 
+      used to define unsigned long type variables.
+        ulong i, j;
+
+    typedef can be used to give a name to user defined data:
+        typedef struct
+        {
+            type member1;
+            type member2;
+            type member3;
+        } type_name;
+    
+    Here, `type_name` represents the structure definition associated with it. Now it can
+      be used to declare variables of this struct type:
+        typen_name t1, t2;
+    
+    Example:
+        #include<stdio.h>
+        #include<string.h>
+
+        typedef struct employee
+        {
+            char name[50];
+            int salary;
+        }emp;
+
+        void main()
+        {
+            emp e1;
+            printf("\nEnter Employee record:\n");
+            printf("\nEmployee name:\t");
+            scanf("%s", e1.name);
+            printf("\nEnter Employee Salary:\t");
+            scanf("%d", &e1.salary);
+            printf("\nEmployee name is: %s", e1.name);
+            printf("\nRoll is %d", e1.salary);
+        }
+
+    typedef can be used to give an alias name to pointers too.
+        In Pointers * binds to the right, not the left
+            int* x, y;
+
+        This is declaring x as a pointer of type int whereas y will be declared as a plain int variable.
+            typedef int* IntPtr;
+            IntPtr x, y, z;
+        
+        But when we use `typedef` as we did above, we can declare any number of pointers in a single statement.
+        
+
+
