@@ -1406,6 +1406,77 @@ Guide NOTES:
             IntPtr x, y, z;
         
         But when we use `typedef` as we did above, we can declare any number of pointers in a single statement.
-        
+
+22 - C Unions
+    https://www.studytonight.com/c/unions-in-c.php
+
+    Unions are conceptually similar to structures. The suntax to declare/define a union is similar to that 
+      of a structure. The only difference is in that of storage:
+        -In structure, each member has its own storage location
+        -In Union, uses a single shared memory location which is equal to the soze of it's largest data member
+
+        struct Emp                  struct Emp
+        {                           {
+            char X; //size 1 byte       char X;
+            char Y; //size 4 byte       char Y;
+        } e;                        } e;
+
+        struct              union
+        X     Y            X    Y
+     | |__| |__| |     | |________| |
+     -------------     --------------
+     ^ 5 bytes ^        ^ 4 bytes ^     
 
 
+    This implies that while a union may contain many members of different types, it cannot handle 
+      all the members at the same time.  
+
+        union item
+        {
+            int m;
+            float x;
+            char c;
+        }It1;
+
+      This declares the var It1 of type union item. This union contains three memebers each with a different
+      data type. However, only one of them can be used at a time. This is due to the fact that only one location
+      is allocated for all the union variables, irrespective of their size. The compiler allocates the storage
+      that is large enough to hole the largest var type.
+
+
+      Example:
+        #include<stdio.h>
+
+        union item
+        {
+            int a;
+            float b;
+            char ch;
+        };
+
+        int main()
+        {
+            union item it;
+            it.a = 12;
+            it.b = 20.5;
+            it.ch = 'v';
+
+            printf("%d\n", it.a);
+            printf("%f\n", it.b);
+            printf("%c\n", it.ch);
+
+            return 0;
+        }
+
+    Output:
+        -26426
+        20.1999
+        v
+    
+    The values of a and b get corrupted but c was preserved. The only member whose value is currently stored will have 
+      the memory.
+    Since variable c was stored at last, the value of the other variables is lost.
+
+
+23 - Intoduction to C pointers
+    https://www.studytonight.com/c/pointers-in-c.php
