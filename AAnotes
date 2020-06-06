@@ -1480,3 +1480,55 @@ Guide NOTES:
 
 23 - Intoduction to C pointers
     https://www.studytonight.com/c/pointers-in-c.php
+
+    A pointer is a vairable which holds the address of another variable of some data type.
+
+    Pointers are used to access memory and manipulate the address.
+
+    They are one of the most distinct and exciting features of C.
+
+    Address in C
+        Whenever a variable is define, a memory location is assigned, in which it's value will be stored. We can easilty 
+          check this memory address using the & symbol.
+          If `var` is the name of the variable, then `&var` will give it's address.
+          ex:
+            #include<stdio.h>
+
+            void main()
+            {
+                int var = 5;
+                printf("Value of var is:", var);
+                printf("Memory address of var is: %x\n", &var);
+            }
+                Outputs: Value of var is: 5; Memory address of var is: bcc7a00;
+        
+        This is also utilized in the function `scanf()`  ex: scanf("%d", &var);
+
+        When a variable is declared, system allocates location/address to the variable in memory to hold the assigned value. 
+        if the system has allocated memory location `90F` for a variable `a`
+                  value
+                |__10__|<-location in memory
+                    a <- name of location
+                    90F <- address
+
+        We can access the value by using the variable name `a` or it's address `90F`
+        The question is HOW can we access a variable using it's address? Since the memory addresses are also just numbers, 
+          they can be assigned to some other variable. The variables which are used to hold memory address are called "Pointer Variables"
+        A pointer variable is therefore nothing but a variable that holds an address of some other variable. And the value of a 
+          pointer var gets stored in another memory location.
+                addr of "a"
+                |__90F__| -->pointer to --> |__10__| 
+                    ptr < --pointer name        a
+                    82C <-- address of pointer  90F
+
+        -Pointers are more efficient in handling Arrays and Structures.
+        -Pointers allow references to a function and thereby helps in passing a function as arg to other functions
+        - Reduces length of the program and it's execution time.
+        - Allows language to support Dynamic Memory management.
+            Dynamic Memory Management - https://www.geeksforgeeks.org/what-is-dynamic-memory-allocation/
+                 - the mechanism by which storage/memory/cells can be allocated during runtime
+
+24 - Declaring, Initializing, and using a pointer var in C 
+    https://www.studytonight.com/c/declaring-and-initializing-pointer.php
+    
+
