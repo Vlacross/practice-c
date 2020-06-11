@@ -1531,4 +1531,104 @@ Guide NOTES:
 24 - Declaring, Initializing, and using a pointer var in C 
     https://www.studytonight.com/c/declaring-and-initializing-pointer.php
     
+    The general syntax of pointer declaration is:
+        datatype *pointer_name;
+    
+    the datatype of the pointer must be the same as the type of the variable which the pointer is pointing to. `void` type pointer 
+      works but us not often used.
+
+        int *ip;
+        float *fp;
+        double *dp;
+        char *cp;
+
+    Pointer initialization is the process of assigning the address of a var to a pointer var. Pointer var can only contain the address
+      of a var of the same datatype. In C, the address operator `&` is used to determine the address of a var. 
+      `&` immediately preceding a var returns the address of the var associated with it.
+    
+        #include<stdio.h>
+
+        void main()
+        {
+            int a = 10;     // initialize a var;
+            int *ptr;       // declare a pointer var;
+            ptr = &a;       // initialize pointer var to first var address
+        }
+    
+    Pointer vars always point to vars of same datatype.
+
+        #include<stdio.h>
+
+        int main()
+        {
+            float a;
+            int *ptr;
+            ptr = &a; // <-- ERROR - type mismatch
+        }
+
+    If you are uncertain which vars address to assign a pointer var when declaring it, it is recommended to assign a NULL val. 
+      This is called a `NULL pointer`
+
+        #include<stdio.h>
+
+        int main()
+        {
+            int *ptr = NULL;
+            return 0;
+        }
+is 
+    Using the Pointer || Dereferencing of Pointer:
+     Once a pointer has been assigned the address of a variable, to access the value of the variable, the pointer is `dereferenced`,
+      using the `indirection operator` || `dereferencing operator` `*`
+
+        #include<stdio.h>
+
+        int main()
+        {
+            int a, *p;
+            a = 10;
+            p = &a;
+
+            printf("%d", *p);       // prints the value of 'a';
+            
+            printf("%d", *&a);      // prints the value of 'a';
+
+            printf("%u", &a);       // prints the address of 'a';
+
+            printf("%u", p);        // prints the address of 'a';
+
+            printf("%u", &p);       // prints the address of 'p';
+
+            exit 0;
+        }
+
+    Points to remember:
+        - While declaring/initializing the pointer variable, `*` indicates that the var is a pointer;
+        - The addrss of any var is given be preceding the variable name with Ampersand `&`;
+        - The pointer var stores the address of a var. The declaration `int *a` doesn't mean that 'a' is going to contain an integer value.
+            It means that 'a' is going to contain the addrss of a variable storing an integer value;
+        - To access the value aof a certain address stored by a pointer, `*` is used. `*` can be read as "value at";
+
+    Example:
+
+        #include<stdio.h>
+
+        int main()
+        {
+            int i = 10;
+            int *a;
+
+            a = &i;
+
+            printf("Address of a variable i is %u\n", a);
+
+            printf("Value at the address, which is stored by pointer variable 'a', is: %d\n", *a);
+
+            return 0;
+        } 
+
+25 - Pointer to a Pointer in C (Double Pointer)
+    https://www.studytonight.com/c/pointer-to-pointer.php
+
+
 
