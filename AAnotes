@@ -1630,5 +1630,61 @@ is
 25 - Pointer to a Pointer in C (Double Pointer)
     https://www.studytonight.com/c/pointer-to-pointer.php
 
+    Pointers are used to store the address of other vars of same datatype. If you want to store
+    the address of a pointer variable, you need another pointer to store it. When one pointer points 
+    to the address of another pointer, it is known as `pointer to pointer` or a `double pointer`.
 
+        int **p1;
+
+    Two indirection operators `*` store and point to the address of the var. To store the address of THIS 
+    pointer, the syntax would become:
+
+        int ***p2;
+
+    Example program:
+
+        #include <stdio.h>
+
+        int main()
+        {
+            int a = 10;
+            int *p1;
+            int **p2;
+
+            p1 = &a;
+            p2 = &p1;
+
+            printf("The address of a is: %u\n", &a);
+            printf("The address of p1 is: %u\n", &p1);
+            printf("The address of p2 is: %u\n", &p2);
+
+            printf("Value at the address stored by p2 = %u\n", *p2);
+            printf("Value at the address stored by p1 = %d\n\n", *p1);
+            printf("Value of **p2 = %d\n", **p2);
+
+            return 0;
+        }
+
+    example output:
+        Address of a = 2686724
+        Address of p1 = 2686728
+        Address of p2 = 2686732
+        Value at the address stored by p2 = 2686724
+        Value at the address stored by p1 = 10
+        Value of **p2 = 10
+    
+    Address     2686732    ->   2686728     ->  2686724
+    Value       2686728    ->   2686724     ->    10
+    Variable       p2      ->      p1       ->     a
+
+        -`p1` can only hold the address of variable `a` (based on the number of redirection operators)
+            Similarly, `p2` can only hold the address of `p1`. It cannot hold the value of `a`
+        -`*p2` gives us the value at an address stored by `p2`. `p2` stores the address of p1 and the 
+            value of `p1` is the address of var `a`. Thus, `*p2` prints the value of `a`.
+        - `**p2` can be read as `*(*p2)`. It gives the value stored at the address of `*p2`. From the 
+            above statement, you know `*p2` means the address of `a`. Hence, the value at the address 
+            `*p2` is 10; Thus, `**p2` prints 10.
+
+26 - Pointer and Arrays in C
+    https://www.studytonight.com/c/pointers-with-array.php
 
