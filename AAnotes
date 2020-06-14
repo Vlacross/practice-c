@@ -1688,3 +1688,114 @@ is
 26 - Pointer and Arrays in C
     https://www.studytonight.com/c/pointers-with-array.php
 
+    When an array is declared, the compiler allocates a sufficient amount of memory to conatin all the 
+      elements of the array. The Base address (address of the first item in the array) is also allocated.
+
+        int arr[5] = { 1, 2, 3, 4, 5 };
+
+    Assuming that the base address of `arr` is 1000 and each integer requires two bytes, the five elements 
+      will be stored as follows:
+                [   ]   [    ]  [    ]  [   ]   [    ]
+        element arr[0]  arr[1]  arr[2]  arr[3]  arr[4] 
+        address 1000    1002    1004    1006    1008
+
+    Here, the variable `arr` will give the base address, which is a contant pointer pointing to the first
+    element of the array: `arr[0]`. Hence `arr` contains the address of `arr[0]` i.e. 1000. So `arr` has
+     two purposes: it is the name of the arrau and it acts as a pointer pointing towards the first element
+     in the array.
+        `arr` is equal to `&arr[0]` by default
+    
+    We can also declare a pointer type `int` to point to the array `arr`
+
+        int *p;
+        p = arr;        \__Both of these are the same
+        p = &arr[0];    /
+    
+    Now we can access every element of `arr` using `p++` to move from one element to another.
+        Note: you cannot decrement a pointer once incremented (`p--` won't work)
+
+    Pointer to Array
+    As noted above: we can use a pointer to point to an array and then use that pointer to access the arrau 
+    elements:
+        #include<stdio.h>
+
+        int main()
+        {
+            int i;
+            int a[5] = { 1, 2, 3, 4, 5 };
+            int *p = a;
+            for (i = 0; i < 5; i++)
+            {
+                printf("%d", *p);
+                p++;
+            }
+            return 0;
+        }
+
+    In the above, `*p` prints all the values one by one. We can also use the base address `a` to act as a pointer:
+
+        printf("%d", a[i]);     <-- prints the arraym by incrementing index
+        printf("%d", i[a]);     <-- Also prints elements of array
+        printf("%d", a+i);      <-- prints the address of all the array elements
+        printf("%d", *(a+i));   <-- Will print the value of the array element 
+        printf("%d", *a);       <-- Will print the value of a[0] only
+
+    The generalized form for using pointer with an array:
+        *(a+i) === a[i]
+    
+    Pointer to Multidimensional Array:
+    a multidimensional array has the form `a[i][j]`. Since the name of the array gives it's base address. In `a[i][j]`, 
+    `a` will give the base address. even `a + 0 + 0` will give the base address, which is for the element `a[0][0]`
+
+    Generalized form for using pointer with multidimensional array:
+        *(*(a+i)+j)
+    Which is the same as
+        a[i][j]
+
+    Pointer and Character Strings:
+
+    A pointer can also be used to create strings. Pointer vars of type `char` are treated as a string:
+        char *str = 'Hello';
+    The above vode creates a string and stores its address in the pointer variable `str`. `str` now points to the first char
+    of the string "Hello".
+    **Another important thing to note here is that the string created using the `char` pointer can be assigned a value at runtime:
+        char *str;
+        str = "Hello"; <-- This is Legal
+
+    The content of the string can be printed using `printf()` and `puts()`
+        printf("%s", str);
+        puts(str);
+    **Notice that `str` is the pointer to the string, it is also the name of the string. Therefore we do not need the 
+    indirection operator `*`.
+
+
+    Array of Pointers:
+    
+    We can also have an arrau of pointers. Pointer are very helpfulin handling character arrays with rows of varying length:
+
+        char *name[3] = {
+            "Adam",
+            "chris",
+            "Daniel"
+        };
+        // The below is the same array without using pointers:
+        char name[3][20] = {
+            "Adam",
+            "chris",
+            "Daniel"
+        };
+
+
+        Using Pointer                   Without Pointer
+        [1st] -> (A)dam                 [A][d][a][m][ ][ ] [ ] [ ] [ ]...
+        [2nd] -> (c)hris                [c][h][r][i][s][ ] [ ] [ ] [ ]...
+        [3rd] -> (D)aniel               [D][a][n][i][e][ ] [ ] [ ] [ ]...
+        char *name[3]                   char name[3][20]    --> extends until 20 memory locations
+        -only 3 locations for pointers
+        which will point to the first char
+        of thier respective strings
+    
+    The second approach shows memory wastage, which is why the first methos is preferred.
+
+27 - Pointer to Array of Structures in C
+    https://www.studytonight.com/c/pointers-to-structure-in-c.php
