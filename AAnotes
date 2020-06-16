@@ -1717,7 +1717,7 @@ is
     Pointer to Array
     As noted above: we can use a pointer to point to an array and then use that pointer to access the arrau 
     elements:
-        #include<stdio.h>
+        #include <stdio.h>
 
         int main()
         {
@@ -1799,3 +1799,85 @@ is
 
 27 - Pointer to Array of Structures in C
     https://www.studytonight.com/c/pointers-to-structure-in-c.php
+
+    Similarly to how we can have an array of integers or an array of pointers, we can also have an arau of structures. To use
+    the arrau of structure vars efficiently, we use pointers of structure type. We can also have a pointer to a single stuct
+     var, but it is mostly used when we are dealing with an array of struct vars.
+
+        #include <stdio.h>
+
+        struct Book
+        {
+            char name[10];
+            int prive;
+        }
+
+        int main()
+        {
+            struct Book a;      <- Single struct var
+            struct Book* ptr;   <- Pointer of a struct var
+            ptr = &a;
+
+            struct Book b[10];  <- Array of struct vars
+            struct Book* p;     <- Pointer of Struct type
+            p = &b;
+
+            return 0;
+        }
+
+            |        b[0]                                    |
+            |  |_name_| |_price_| . . .(b[1], b[2], ...)     |  <-- array of struct vars
+            |________________________________________________|              " b[10] "
+                        ^
+                        |
+                points to first var
+                    |_&b[0]_|       <---  struct Book type pointer
+                        p                        " struct Book* p "
+
+
+    Access Structure memebers with a Pointer
+    To access memebers of a strucure using the stuct variable, we used the dot `.` operator.
+    
+        struct dog
+        {
+            char name[10];
+            char breed[10];
+            int age;
+        }
+
+        struct dog rex;
+
+        struct dog *ptr_dog;    <- declares a "struct dog" type pointer
+        ptr_dog = &spike;       <- assigns the address of 'spike' to 'ptr_dog'
+    
+    Accessing members using pointer:
+        (*ptr_dog).name
+        (*ptr_dog).breed
+
+    
+    To make things easier to read when accessing memebrs of type struct, we user an arrow `->` to access struct members:
+        #include <stdio.h>
+
+        struct my_structure 
+        {
+            char name[20];
+            int number;
+            int rank;
+        }
+
+        int main()
+        {
+            struct my_structure variable = { "SimpleWorld", 33, 1 };
+
+            struct my_structure *ptr;
+            ptr = &variable;
+
+            printf("NAME: %s\n", ptr->name);
+            printf("NUMBER: %d\n", ptr->number);
+            printf("RANK: %d", ptr->rank);
+
+            return 0;
+        }
+
+28 - Pointer Arithmetic in C
+    https://www.studytonight.com/c/pointer-arithmetic-in-c.php
