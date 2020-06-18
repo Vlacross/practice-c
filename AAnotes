@@ -1881,3 +1881,112 @@ is
 
 28 - Pointer Arithmetic in C
     https://www.studytonight.com/c/pointer-arithmetic-in-c.php
+
+    Pointer arithmetic has to do with how the memory addresses change when you increment a pointer.
+
+    16 bit Machine(Turbo C):
+        In a 16 bit machine, whether the pointer be type `int*`, `float*`, `char*`, or `double*`, it is always 2 bytes.
+        When we perform an arithmetic function like increment on a pointer, changes occur as per the size of their 
+        primitive data type.
+
+                    Type                            Size
+                    int or signed int               2
+                    char                            1
+                    long                            4
+                    float                           4
+                    double                          8
+                    long double                     10
+
+    Examples:
+            int* i;
+            i++;
+        in the above case, the pointer will be 2 bytes. When we increment in, it will increment by 2 bytes because `int`
+        is also 2 bytes.
+
+            float* i;
+            i++;
+        in this case, the size of the pointer is still 2, but it will increment by 4 since that is the size of type `float`;
+
+            double* i;
+            i++;
+        Similarly, pointer is size 2, increments by the data-type size of `double` which is 8.
+
+
+    32 bit machine(Visual Basic C++):
+        With 32 bit machine, the concept of pointer arithmetic remains exactly the same, but the size of the pointer and various 
+        datatypes is different. Pointer in 32 bit machine is 4 bytes.
+        
+        Size of datatypes on 32-bit machine:
+
+                    Type                            Size
+                    int or signed int               4
+                    char                            2
+                    long                            8
+                    float                           4
+                    double                          8
+
+    Note: We can not add two pointers. This is because pointers contain addresses, adding two addresses makes no sense, 
+    because you have no idea what it would point to.
+    BUT: we can subtract two pointers. This is because the difference between pointers gives the number of elements of it's data 
+    type that can be stored between two pointers.
+
+    Example program for pointer arithmetic ( 32 bit machine )
+
+        #include<stdio.h>
+
+        int main()
+        {
+            int m = 5, n = 10, o = 0;
+
+            int *p1;
+            int *p2;
+            int *p3;
+
+            p1 = &m;
+            p2 = &n;
+
+            printf("p1 = %d\n", p1);
+            printf("p2 = %d\n", p2);
+
+            o = *p1+*p2;
+            printf("*p1+*p2 = %d\n", o); // point 1
+
+            p3 = p1-p2;
+            printf("p1-p2 = %d\n", p3); // point 2
+
+            p1++;
+            printf("p1++ = %d\n", p1);  // point 3
+
+            p2--;
+            printf("p2-- = %d\n", p2); // point 4
+
+            // The Below line will give an error //
+            printf("p1+p2 = %d\n", p1+p2); // point 5
+
+            return 0;
+
+        }
+
+    outputs:
+        p1 = 2680016
+        p2 = 2680012
+
+        *p1+*p2 = 15
+        p1-p2 = 1
+        p1++ = 2680020
+        p2-- = 2680008  
+
+    Explanation of above program:
+        1) Point 1: Here, `*` means "value at the given address". Thus, it adds the value of `m` and `n` which is 15.
+        2) Point 2: It subtracts the addresses of the two vars and then divides it by the size of the pointer datatype
+            (here integer which has a size of 4 bytes) which gives us the number of elements of integer data type that
+            can be stored within it.
+        3) Point 3: It increments the address stored by the pointer by the size of it's datatype (which is 4 here).
+        4) Point 4: It decrements the address stored by the pointer by the size of it's datatype (which is 4 here).
+        5) Point 5: Addition of two pointers is not allowed.
+
+29 - Pointers as Function Arguments in C
+    https://www.studytonight.com/c/pointer-with-function-in-c.php
+
+    
+
