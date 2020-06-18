@@ -1988,5 +1988,119 @@ is
 29 - Pointers as Function Arguments in C
     https://www.studytonight.com/c/pointer-with-function-in-c.php
 
-    
+
+    Pointers as function parameters are used to hold addresses of arguments passed during function calls. This is also 
+    known as `call by reference`. When a function is called be reference, any change made to the reference var will 
+    affect the original var.
+
+    Example:
+        #include <stdio.h>
+
+        void swap(int *a, int *b);
+
+        int main()
+        {
+            int m = 10, n = 20;
+            printf("m = %d\n", m);
+            printf("n = %d\n", n);
+
+            swap(&m, &n);       //passing the addresses of m and n
+            printf("After Swapping: \n\n");
+            printf("m = %d\n", m);
+            printf("n = %d\n", n);
+
+            return 0;
+        }
+
+        void swap(int *a, int *b)
+        {
+            int temp;
+            temp = *a;
+            *a = *b;
+            *b = temp;
+        }
+
+
+    Functions returning Pointer Variables:
+    A function can also return a pointer to the calling function. In this case, you must be carefule of which 
+    vars are being referenced by the pointer from inside the function - once the function ends, the pointer 
+    returned, if pointing to a function-local var, will point to nothing.
+
+        #include <stdio.h>
+
+        int* larger(int*, int*);
+
+        void main()
+        {
+            int a = 15;
+            int b = 92;
+            int *p;
+            p = larger(&a, &b);
+            printf("%d is larger!", *p);
+
+        }
+
+        int* larger(int *x, int *y)
+        {
+            if(*x > *y)
+                return x;
+            else
+                return y;
+        }
+
+    Safe ways to return a valid pointer:
+    It is possible to declare a pointer pointing to a function which can then be used as an argument in another function.
+    Syntax for declaring a pointer to a function:
+        
+        type (*pointer-name)(parameter);
+
+    Example:
+
+        int (*sum)();       // Legal decalration of pointer to function
+        int *sum();         // This is not a declaration of a pointer to a function
+
+    The function pointer can point to a specific function when it is assigned the name of that function:
+
+        int sum(int, int);
+        int (*s)(int, int);
+
+        s = sum;
+
+    Here, `s` is a pointer to a function `sum`. Now `sum` can be called using function pointer `s` along with providing the 
+    required argument values.
+
+        s (10, 20);
+
+    Example of pointer to Function:
+
+        #include <stdio.h>
+
+        int sum(int x, int y)
+        {
+            return x+y;
+        }
+
+        int main() 
+        {
+            int (*fp)(int, int);
+            fp = sum;
+            int s = fp(10, 15);
+            printf("Sum is %d\n", s);
+
+            return 0;
+        }
+
+
+    Complicat3ed Function Pointer Example:
+
+        coid *(*foo) (int*);
+
+    In this case, `foo` is a pointer to the function, whose arguments are `int*` type and whose return type is `void*`
+
+
+30 - File Input/Output in C
+    https://www.studytonight.com/c/file-input-output.php
+
+
+
 
