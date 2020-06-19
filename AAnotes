@@ -2101,6 +2101,153 @@ is
 30 - File Input/Output in C
     https://www.studytonight.com/c/file-input-output.php
 
+    A `file` represents a sequence of bytes on the disk where a group of related data is stored. A `file` is created for 
+    permanent storage of data. It is a ready made structure.
+
+    In C, we use a structure `pointer of file type` to declare a file:
+
+        FILE *p;
+
+    C provides a number of functions that help to perform basic file operations:
+
+        FUNCTION            DESCRIPTION
+        fopen()             create a new file or open an existing file
+        fclose()            closes a file
+        getc()              reads a character from a file
+        putc()              writes a char to a file
+        fscanf()            reads a set of data from a file
+        fprintf()           writes a set of data to a file
+        getw()              reads an integer from a file
+        putw()              writes an integer to a file
+        fseek()             set position to desired point
+        ftell()             gives the current position in the file
+        rewind()            set the position to the beginning point
+
+    Opening a file or Creating a file:
+
+        *fp = FILE *fopen(const char *filename, const char *mode);
+
+    Here, `*fp` is the FILE pointer (FILE *fp) which will hold the reference to the opened(or created) file.
+
+    `filename` is the name of the file to be opened and `mode` specifies the purpose of opening the file.
+    `Mode` can be fo the following types:
+
+        MODE                DESCRIPTION
+        r                       opens a text file in reading mode
+        w                       opens or creates a text file in writing mode
+        a                       opens a text file in append mode
+        r+                      opens a text file in both read and write mode
+        w+                      opens a text file in both read and write mode
+        a+                       opens a text file in both read and write mode
+        rb                      opens a binary file in reading mode
+        wb                      opens or creates a binary file in writing mode
+        ab                      opens a binary file in append mode
+        rb+                     opens a binary file in both read and write mode
+        wb+                     opens a binary file in both read and write mode
+        ab+                     opens a binaru file in both read and write mode
+
+    Closing a file
+    The `fclose()` function is used to close an alreadu opened file.
+
+        int fclose( FILE *fp );
+
+    Here, `fclose()` function closes the file and returns a zero status on success, or EOF if there is an error in 
+    closing the file. EOF is a constant in the header file stdio.h
+
+
+    Input/Output operation on a File
+    In the above table we discussed various I/O functions to perform reading and writing on file. `getc()` and 
+    `putc()` are the simplest functions which can be used to read and write individual chars to a file.
+
+        #include <stdio.h>
+
+        int main()
+        {
+            FILE *fp;
+            char ch;
+            fp = fopen("one.txt", "w");
+            printf("Enter Date:");
+            while( (ch = getchar()) != EOF) {
+                putc(ch, fp);
+            }
+            fclose(fp);
+            fp = fopen("one.txt", "r");
+
+            while( (ch = getc(fp)) != EOF ) {
+                printf("%c", ch);
+            }
+            fclose(fp);
+
+            return 0;
+        }
+
+
+    Reading and Writing to File using `fprintf()` and `fscanf()`
+
+        #include<stdio.h>
+
+        struct emp
+        {
+            char name[10];
+            int age;
+        }
+
+        void main()
+        {
+            struct emp e;
+            FILE *p, *q;
+            p = fopen("one.txt", "a");
+            q = fopen("one.txt", "r");
+            printf("Enter Name and Age:");
+            fprintf(p, "%s, %d", e.name, e.age);
+            flose(p);
+            do
+            {
+                fscanf(q, "%s, %d", e.name, e.age);
+                printf("%s %d", e.name, e.age);
+            }
+            while(!feof(q));
+        }
+
+    In this program, we created two FILE pointers and bot are referring to the same file but in different modes.
+
+    Difference between Append and Write Mode:
+    Write (w) and Append (a) mode, while opening a file are almost the same. Both are used to write to a file, 
+    and in both modes, a new file is created if it doesn't exist already. 
+    The only difference the have is, when you open a file in write mode, the file is reset, resulting in deletion
+     of any data already present in the file. While in append mode this does not happen.
+    Append mode is used to append or add data to the existing file (if any). Hence, when you open a file in
+     Append (a) mode, the cursor is positioned at the end of the present data in the file.
+
+
+    Reading and writing in a Binary File:
+    A Binary file is similar to a text file, but it contains only large numerical data. The opening models are 
+    mentioned in the table for opening modes above. 
+    `fread()` and `fwrite()` functions are used to read and write to a binary file,
+
+        fwrite(data-element-to-be-written, size_of_elements, number_of_elements, pointer-to-file);
+
+    `fread()` is also used in the same way, with the same arguments like `fwrite()` function.
+    Simple example of writing into a binary file:
+
+        const char *mytext = "Happy cows live in Washington";
+        FILE *bfp= fopen("test.txt", wb);
+        if (bfp)
+        {
+            fwrite(mytext, sizeof(char), strlen(mytext), bfp);
+            fclose(bfp);
+        }   
+
+    `fseek()`, `ftell()`, and `rewind()` functions:
+        `fseek()`- Used to move the reading control to a different position 
+        `ftell()` - It tells the byte location of current position of cursor in file pointer
+        `rewind()` - It moves the control to the beginning of the file.
+
+    View list of recommended file handling program examples:
+
+31 - Error Handling in C
+    https://www.studytonight.com/c/error-handling-in-c.php
 
 
 
+    
