@@ -2248,6 +2248,102 @@ is
 31 - Error Handling in C
     https://www.studytonight.com/c/error-handling-in-c.php
 
+    C language does not provide a direct support for error handling, however a few methods and variable defined in
+    error.h file can be used to point out errors using the return statement in a function. 
+    In C, a function returns -1 or NULL value in case of any error and a global var `errno` is set with the error code.
+    So the return value can be used to check errors.
 
+    What is `errno`:
+        Whenever a function call is made, a variable named `errno` is associated with it. It is a global var, which can
+        be used to identify which type of error was encountered while the function executed. 
+        Below is a list of Error numbers and what they mean:
+
+            errno value                         Error
+            1                                   Operation not permitted
+            2                                   No such file of dir
+            3                                   No such process
+            4                                   Interrupted sys call
+            5                                   I/O error
+            6                                   No such device address
+            7                                   Arg list too long
+            8                                   Exec format error
+            9                                   Bad file number
+            10                                  No child process
+            11                                  Try again
+            12                                  Out of memory
+            13                                  Permission denied
+
+        C uses the following functions to represent error messages associated with `errno`:
+            - perror()   -- returns the string passed to it along with the textual represenetation of the current errno value
+            - strerror() -- defined in `string.h` lib : returns a pointer to the string representation of the current errno value
+
+    Example
+
+        #include <stdio.h>
+        #include <errno.h>
+        #include <string.h>
+
+        int main()
+        {
+            FILE *fp;
+
+            /* If a file that doesn't exist is opened, we will get an error */
+
+            fp = open("ReturnerOfErrors.txt", "r");
+
+            printf("Value of errno: %d\n", errno);
+            printf("The error msg is: %s\n", strerror(errno));
+            perror("Message from perror");
+
+            return 0;
+        }
+
+            OUTPUT:
+                Value of errno: 2
+                The error message is: No such file or directory
+                Message from perror: No such file or directory
+
+        Other ways of error handling:
+        We can also use `Exit Status` constants in the `exit()` function to inform the calling function about the error.
+        The two constnt values available for use are `EXIT_SUCCESS` and `EXIT_FAILURE`. 
+        These are nothing but macros define in `stdlib.h` header file.
+
+            #include <stdio.h> 
+            #include <errno.h>
+            #include <stdlib.h>
+            #include <string.h>
+
+            extern int errno;
+
+            void main()
+            {
+                char *ptr = malloc( 1000000000UL); /* requesting to allocate 1gb memory */
+                if (ptr == NULL)
+                {
+                    puts("malloc failed");
+                    puts(strerror(errno));
+                    exit(EXIT_FAILURE);
+                }
+                else
+                {
+                    free( ptr);
+                    exit(EXIT_SUCCESS);
+                }
+            }
+        
+        Here, the exit function is used to indicate the exit status. It is always good practice to exit a program 
+        with an exit status. EXIT_SUCCESS and EXIT_FAILURE are two macro used to show exit status. In case of the 
+        program coming out after a successful operation, EXIT_SUCCESS is used. It is defined as 0. EXIT_FAILURE is
+         used in case of any failure in the program. It is defined as -1.
+
+    Division by Zero:
+        There are some situations where nothing can be done to handle the error. One such situation is division by zero.
+        All you can do is avoid doing this, because if you do so, C is not able to enderstand what happened, and gives 
+        a runtime error.
+        The best way to avoid this is to check the value of the diviso before using it in the division operations. You 
+        can use an `if` clause, and if it is zero, just diplay a message and return from the function.
+
+32 -  Memory Allocation in C
+    https://www.studytonight.com/c/dynamic-memory-allocation-in-c.php
 
     
