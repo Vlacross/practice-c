@@ -2343,7 +2343,137 @@ is
         The best way to avoid this is to check the value of the diviso before using it in the division operations. You 
         can use an `if` clause, and if it is zero, just diplay a message and return from the function.
 
-32 -  Memory Allocation in C
+32 -  Dynamic Memory Allocation in C
     https://www.studytonight.com/c/dynamic-memory-allocation-in-c.php
 
+    The process of allocating memory at runtim is known as "dynamic memory allocation".
+    Library routines known as "memory management functions" are used for allocating and freeing memory during execution
+    of a program. These functions are defined in `stdlib.h` header file.
+
+        FUNCTION            DESCRIPTION 
+        `malloc()`          allocates requested size of butes and returns a void pointer pointing to the first byte of       
+                                the allocated space.
+        `calloc()`          allocates space for an array of elements, initializes them to zero, and then returns a void 
+                                pointer to the memory.
+        `free`              releases previously allocated memory.
+        `realloc`           modifu the size of previously allocated space.
+
+    Memory Allocation Process:
+    Global variables, `static` variables, and program instructions get their memory in `permanent` storage area whereas 
+    `local` vars are stored in a memory area called `Stack`.
+    The memory space between these two regions in known as `Heap` area. This region is used for dynamic memory allocation
+    during the execution of the program. The size of the heap keeps changing.
+
+        |   Local Variable     | > Stack
+        |     Free memory      | > Heap
+        |   Global variable    | \
+        | Program Instructions |  } Permanent Storage area
+        |   static variable    | /
+
+
+    Allocating a Block of Memory:
+
+    `malloc()` function is used for allocating a block of memory at runtime. This function reserves a block of memory of the
+    given size and returns a pointer of type `void`. This means that we can assigne it to any type of pointer using typecasting.
+    If it fails to allocate enough space as specified, it returns a `NULL` pointer.
+        Syntax:
+            void* malloc(byte-size)
+            ptr = (cast-type*) malloc(byte-size)
+        
+        Example of `malloc()`:
+
+            int *x;
+            x = (int*)malloc(50 * sizeof(int)); /* memory space allocated to variable `x` */
+            free(x);            /* releases the mrmory allocated to variable `x` */
+
+
+
+    `calloc()` is another memory allocation function that is used for allocating memory at runtime. `calloc` function is normally
+    used for allocating memory to derived data types such as arrays and structures. It if fails to allocate enough space, it 
+    returns a `NULL` pointer:
+        Syntax:
+            void *calloc(<numer-of-items>, element-size);
+        
+        Example of `calloc()`:
+
+            struct employee
+            {
+                char *name;
+                int salary;
+            };
+
+            typedef struct employee emp;
+            emp *e1;
+            e1 = (emp*)calloc(30, sizeof(emp));
+
+    `realloc()` changes memory size that i already allocated dynamically to a variable.
+        Syntax:
+            void* realloc(pointer, new-size);
     
+        Example of `realloc`:
+            int *x;
+            x = (int*)malloc(50 * sizeof(int));
+            x = (int*)realloc(x, 100);          /* allocated a new memory to variable `x` */
+
+    Differences between `malloc()` and `calloc()`:
+
+            calloc()                                            malloc()
+            initialized the allocated memory with 0 value       initializes the allocated memory with garbage values
+            number of args is 2                                 number of args in 1
+            (cast_type*) calloc(blocks, size_of_blocks)         (cast_type*) malloc(size_in_bytes)
+
+    Program to represent Dynamic Memory Allocation(using `calloc()`)
+
+        #include <stdio.h>
+        #include <stdlib.h>
+
+        int main()
+        {
+            int i, n;
+            int *element;
+
+            printf("Enter total number of elements: ");
+            scanf("%d", &n);
+
+            element = (int*) calloc(n, sizeof(int));    /* returns a void pointer (which is type-casted to int*) 
+                                                           pointing to the first block of the allocated space
+                                                        */
+            if(element == NULL)
+            {
+                printf("Error. Not enough space available!");
+                exit(0);
+            }                                           /* If it fails to allocate enough space as specified,  
+                                                           it returns a NULL pointer
+                                                        */
+            for(i = 0; i < n; i++)
+            {
+                /*
+                    Storing elements from the user in the allocated space
+                */
+
+                scanf("%d", element+i);
+            }
+            for(i = 1; i<n; i++)
+            {
+                if(*element > *(element+i))
+                {
+                    *element = *(element+i);
+                }
+            }
+
+            printf("Smallest element is %d", *element);
+
+            return 0;
+        }
+
+    Output:
+        Enter total number of elements: 5
+        4 2 1 5 3
+        Smallest element is 1
+
+
+33 - Command Line Arguments in C
+    https://www.studytonight.com/c/command-line-argument.php
+
+
+
