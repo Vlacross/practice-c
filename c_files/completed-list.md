@@ -19,3 +19,4 @@ This is just a list to keep track of the simple programs already completed from 
 3) Nested for Loops -- nested_for_loops
 4) Print Factorial -- factorialFinder
 5) Fibonacci Series -- fibonacci_while
+6) Palindrome -- palindrome
