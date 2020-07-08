@@ -20,3 +20,4 @@ This is just a list to keep track of the simple programs already completed from 
 4) Print Factorial -- factorialFinder
 5) Fibonacci Series -- fibonacci_while
 6) Palindrome -- palindrome
+7) Program to find Sum of Digits -- sum_of_digits
