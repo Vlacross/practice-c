@@ -21,3 +21,4 @@ This is just a list to keep track of the simple programs already completed from 
 5) Fibonacci Series -- fibonacci_while
 6) Palindrome -- palindrome
 7) Program to find Sum of Digits -- sum_of_digits
+8) Program to reverse a string -- reverse_a_string
