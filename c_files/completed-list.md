@@ -22,3 +22,6 @@ This is just a list to keep track of the simple programs already completed from 
 6) Palindrome -- palindrome
 7) Program to find Sum of Digits -- sum_of_digits
 8) Program to reverse a string -- reverse_a_string
+
+  NUMBER CRUNCHING
+  1) Program to find the average of n numbers -- average_of_ns
