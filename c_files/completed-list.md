@@ -24,4 +24,5 @@ This is just a list to keep track of the simple programs already completed from 
 8) Program to reverse a string -- reverse_a_string
 
   NUMBER CRUNCHING
-  1) Program to find the average of n numbers -- average_of_ns
+1) Program to find the average of n numbers -- average_of_ns
+2) Armstrong Number -- armstrong
