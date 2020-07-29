@@ -26,3 +26,4 @@ This is just a list to keep track of the simple programs already completed from 
   NUMBER CRUNCHING
 1) Program to find the average of n numbers -- average_of_ns
 2) Armstrong Number -- armstrong
+3) Checking input for even/odd using bitwise -- bitwise_even_odd_sort
