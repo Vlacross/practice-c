@@ -29,3 +29,5 @@ This is just a list to keep track of the simple programs already completed from 
 3) Checking input for even/odd using bitwise -- bitwise_even_odd_sort
 4) Print factors of a number -- print_factors
 5) Sum of n numbers -- sum_of_n_numbers
+6) Print first n Prime Numbers -- print_factors
+7) Find Largest among n Numbers -- find_largest
