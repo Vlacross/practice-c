@@ -32,3 +32,4 @@ This is just a list to keep track of the simple programs already completed from 
 6) Print first n Prime Numbers -- print_factors
 7) Find Largest among n Numbers -- find_largest
 8) Exponential without pow() -- exponential_without
+9) Check if input number is int or float -- check_int_or_float
