@@ -33,3 +33,5 @@ This is just a list to keep track of the simple programs already completed from 
 7) Find Largest among n Numbers -- find_largest
 8) Exponential without pow() -- exponential_without
 9) Check if input number is int or float -- check_int_or_float
+10) Multiplication table of a Number -- multiplication_table
+
