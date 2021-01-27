@@ -35,3 +35,6 @@ This is just a list to keep track of the simple programs already completed from 
 9) Check if input number is int or float -- check_int_or_float
 10) Multiplication table of a Number -- multiplication_table
 
+    Concept of Arrays
+1) Reverse an Array -- reverse_array
+2) Insert an element in an Array -- insert_el_to_array
