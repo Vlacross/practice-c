@@ -38,3 +38,4 @@ This is just a list to keep track of the simple programs already completed from 
     Concept of Arrays
 1) Reverse an Array -- reverse_array
 2) Insert an element in an Array -- insert_el_to_array
+3) Delete an Element from an Array -- delete_el_from_array
