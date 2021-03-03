@@ -39,3 +39,4 @@ This is just a list to keep track of the simple programs already completed from 
 1) Reverse an Array -- reverse_array
 2) Insert an element in an Array -- insert_el_to_array
 3) Delete an Element from an Array -- delete_el_from_array
+4) Largest and Smallest Element in an Array -- largest_smallest_arrs
